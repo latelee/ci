@@ -3,5 +3,5 @@
 int main(void)
 {
     printf("hello travis.\n");
-    reuturn 0
+    reuturn 0;
 }
