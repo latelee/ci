@@ -1,9 +1,13 @@
 language: c
 
 install:
-  
+  echo "install sth here"
 before_script:
-
+  echo "before script"
 script:
+  echo "building"
+  gcc main.c
 
 after_script:
+  echo "after script"
+
