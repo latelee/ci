@@ -8,7 +8,6 @@ install:
 before_script:
   echo "before script"
 script:
-  echo "building"
   gcc main.c
 
 after_script:
