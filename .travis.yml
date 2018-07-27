@@ -12,6 +12,7 @@ script:
   - echo "aaaa"
   - pwd
   - gcc -v
+  - ls -lh
   - ./build.sh
 
 after_script:
