@@ -13,6 +13,7 @@ script:
   - pwd
   - gcc -v
   - ls -lh
+  - chmod +x build.sh
   - ./build.sh
 
 after_script:
