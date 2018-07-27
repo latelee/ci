@@ -9,7 +9,8 @@ install:
 before_script:
   echo "before script"
 script:
-  gcc main.c
+  - echo "aaaa"
+  - ./build.sh
 
 after_script:
   echo "after script"
