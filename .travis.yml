@@ -10,6 +10,8 @@ before_script:
   echo "before script"
 script:
   - echo "aaaa"
+  - pwd
+  - gcc -v
   - ./build.sh
 
 after_script:
