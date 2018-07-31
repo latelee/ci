@@ -4,9 +4,8 @@ git:
 language: c
 
 install:
-  echo "install sth here"
+  - echo "install sth here"
 before_script:
-  echo "before script"
   - chmod +x build.sh
 
 script:
@@ -14,9 +13,8 @@ script:
   - pwd
   - gcc -v
   - ls -l
-
   - ./build.sh
 
 after_script:
-  echo "after script"
+  - echo "after script"
 
