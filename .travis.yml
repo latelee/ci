@@ -1,19 +1,20 @@
 git:
   quiet: true
 
-# ÷∏∂®”Ô—‘
 language: c
 
 install:
   echo "install sth here"
 before_script:
   echo "before script"
+  - chmod +x build.sh
+
 script:
   - echo "aaaa"
   - pwd
   - gcc -v
-  - ls -lh
-  - chmod +x build.sh
+  - ls -l
+
   - ./build.sh
 
 after_script:
