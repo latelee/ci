@@ -1,7 +1,12 @@
 git:
   quiet: true
 
-language: c
+sudo: required
+
+services:
+  - docker
+
+#language: c
 
 install:
   - apt get install sshpass
@@ -15,7 +20,9 @@ script:
   - pwd
   - gcc -v
   - ls -l
-  - ./build.sh
+  - docker build -t k8s_tar 1.8.15
+  - docker images
+  #- ./build.sh
 
 after_script:
   - echo "after script"
