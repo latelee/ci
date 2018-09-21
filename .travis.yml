@@ -9,7 +9,7 @@ install:
 install:
   - echo "install sth here"
 before_script:
-  - chmod +x ./build.sh
+  #- chmod +x ./build.sh
 script:
   - echo "aaaab"
   - pwd
