@@ -11,7 +11,7 @@ install:
 before_script:
   - chmod +x ./build.sh
 script:
-  - echo "aaaa"
+  - echo "aaaab"
   - pwd
   - gcc -v
   - ls -l
