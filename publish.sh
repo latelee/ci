@@ -4,4 +4,4 @@ git config user.email "li@latelee.org"
 # add commit timestamp
 git add .
 git commit -m "update"
-git push --force --quiet "https://abe0bc35021c1ab45f8672f6ed39f58c652eeada@github.com/latelee/ci.git" master:master
+git push "https://558e52d0ab4bbe7673e0ac7737acfffd59ee4cac@github.com/latelee/ci.git" master:master
