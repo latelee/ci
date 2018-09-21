@@ -13,14 +13,14 @@ RUN apt-get update || true && \
     wget && \
     rm -rf /var/lib/dpkg/info/* /var/lib/apt/lists/*
 
-RUN wget -c https://dl.k8s.io/${K8S_VERSION}/kubernetes-server-linux-amd64.tar.gz
+RUN wget -c -q https://dl.k8s.io/${K8S_VERSION}/kubernetes-server-linux-amd64.tar.gz
 
-RUN wget -c https://dl.k8s.io/${K8S_VERSION}/kubernetes-client-linux-amd64.tar.gz
+RUN wget -c -q https://dl.k8s.io/${K8S_VERSION}/kubernetes-client-linux-amd64.tar.gz
 
-RUN wget -c https://dl.k8s.io/${K8S_VERSION}/kubernetes-node-linux-arm64.tar.gz
+RUN wget -c -q https://dl.k8s.io/${K8S_VERSION}/kubernetes-node-linux-arm64.tar.gz
 
-RUN wget -c https://github.com/etcd-io/etcd/releases/download/${ETCD_VERSION}/etcd-${ETCD_VERSION}-linux-amd64.tar.gz
+RUN wget -c -q https://github.com/etcd-io/etcd/releases/download/${ETCD_VERSION}/etcd-${ETCD_VERSION}-linux-amd64.tar.gz
 
-RUN wget -c https://github.com/coreos/flannel/releases/download/${FLANNEL_VERSION}/flannel-${FLANNEL_VERSION}-linux-amd64.tar.gz
+RUN wget -c -q https://github.com/coreos/flannel/releases/download/${FLANNEL_VERSION}/flannel-${FLANNEL_VERSION}-linux-amd64.tar.gz
 
 CMD ["/bin/bash"]
