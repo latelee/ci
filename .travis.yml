@@ -1,8 +1,14 @@
+git:
+  quiet: true
+
+# 指定语言
+language: c
+
 sudo: required
 
 install:
   - echo "install sth here"
-  - sudo apt-get install wget #安装软件示例
+
 ## 一些基础环境、条件可在此进行
 before_script:
   - echo "before script"
@@ -11,8 +17,7 @@ script:
   - echo "hello world"
   - pwd
   - ls -l
-  - uname -a
-  - gcc -v
+  - ./build.sh
 ## 脚本完成后的操作，如将服务部署远程主机
 after_script:
   - echo "after script"
