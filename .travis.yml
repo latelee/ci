@@ -1,3 +1,5 @@
+sudo: required
+
 install:
   - echo "install sth here"
   - apt get install wget #安装软件示例
