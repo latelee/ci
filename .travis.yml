@@ -2,7 +2,7 @@ sudo: required
 
 install:
   - echo "install sth here"
-  - apt-get install wget #安装软件示例
+  - sudo apt-get install wget #安装软件示例
 ## 一些基础环境、条件可在此进行
 before_script:
   - echo "before script"
