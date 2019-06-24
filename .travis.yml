@@ -17,6 +17,7 @@ script:
   - echo "hello world"
   - pwd
   - ls -l
+  - chmod +x build.sh
   - ./build.sh
 ## 脚本完成后的操作，如将服务部署远程主机
 after_script:
