@@ -1,32 +1,23 @@
-git:
-  quiet: true
-
-sudo: required
-
-services:
-  - docker
-
-#language: c
-
-install:
-  - apt get install sshpass
-  
 install:
   - echo "install sth here"
+  - apt get install wget #安装软件示例
+## 一些基础环境、条件可在此进行
 before_script:
-  #- chmod +x ./build.sh
+  - echo "before script"
+## 正式脚本，这里执行一些常见的linux命令
 script:
-  - echo "aaaabc"
+  - echo "hello world"
   - pwd
-  - gcc -v
   - ls -l
-  - docker build -t k8s_tar 1.8.15
-  - docker images
-  #- ./build.sh
-
+  - uname -a
+  - gcc -v
+## 脚本完成后的操作，如将服务部署远程主机
 after_script:
   - echo "after script"
-  - echo "env " $PASS
+  - echo "my env " $PASSWD
+  - echo "ci env "  $name
+
+## 环境变量，注意，这是脚本内的环境变量
 env:
   global:
-    - PASS: latelee
+    - PASSWD: pw123456
