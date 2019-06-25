@@ -1,12 +1,13 @@
 stages:
-  - build
+    - build
+    - deploy
 build:
   stage: build
   image: docker:stable
   services:
-    - docker: dind
+    - docker:dind
   variables:
-    foo:hell world
+    foo: hello world
   script:
     - echo "env" $foo
     - echo "building docker"
@@ -14,5 +15,8 @@ build:
     - docker images
   after_script:
     - echo "after script"
-  only:
-    - master
+
+deploy:
+  stage: deploy
+  script:
+    - echo "deploy stage"
