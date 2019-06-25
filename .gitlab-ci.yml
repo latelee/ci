@@ -2,9 +2,9 @@ my_job: # 定义job名称
   before_script:
     - echo "before script"
   script:
-    - echo "building"
-    - gcc main.c
-    - ./a.out
+    - echo "building docker"
+    - docker build -t k8s_tar 1.8.15
+    - docker images
   after_script:
     - echo "after script"
   only:
