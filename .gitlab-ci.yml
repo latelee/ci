@@ -1,15 +1,10 @@
-send_job: # 定义job名称
+my_job: # 定义job名称
   before_script:
     - echo "before script"
   script:
-    - echo "hello world"
-    - pwd
-    - ls -l
-    - uname -a
-    - gcc -v
+    - echo "building"
+    - gcc main.c
   after_script:
-    - echo "my env " $PASSWD
-    - echo "ci env "  $name
-    - echo "ci env "  $noname
+    - echo "after script"
   only:
     - master
