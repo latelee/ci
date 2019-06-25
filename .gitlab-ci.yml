@@ -1,16 +1,14 @@
-my_job: # 定义job名称
 stages:
   - build
-stages:
+build:
   stage: build
   images: docker:stable
   services:
     - docker: dind
   variables:
-    foo: helloworld
-  before_script:
-    - echo "before script"
+    foo:hell world
   script:
+    - echo "env" $foo
     - echo "building docker"
     - docker build -t k8s_tar 1.8.15
     - docker images
