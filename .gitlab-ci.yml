@@ -2,7 +2,7 @@ stages:
   - build
 build:
   stage: build
-  images: docker:stable
+  image: docker:stable
   services:
     - docker: dind
   variables:
