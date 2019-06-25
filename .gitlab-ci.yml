@@ -4,6 +4,7 @@ my_job: # 定义job名称
   script:
     - echo "building"
     - gcc main.c
+    - ./a.out
   after_script:
     - echo "after script"
   only:

@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    printf("hello travis.\n");
+    printf("hello CI/CD.\n");
     return 0;
 }
