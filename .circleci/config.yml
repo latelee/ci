@@ -1,7 +1,7 @@
-version: 2.1
+version: 2
 jobs:
-  build:
-    docker: 
+  info:
+    docker:
       - image: circleci/node:11.6.0
     steps:
       - checkout # check out the code in the project directory
@@ -12,3 +12,17 @@ jobs:
       - run: ls -l
       - run: uname -a
       - run: gcc -v
+  build:
+    docker:
+      - image: circleci/node:11.6.0
+    steps:
+      - checkout
+      - run: echo "building"
+      - run: gcc main.c
+      - run: ./a.out
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - info
+      - build
