@@ -1,22 +1,17 @@
-stages: # 本次构建分2个阶段，GitLab会分2次构建
-  - build
-  - deploy
-build: # build阶段
-  stage: build
-  image: docker:stable
-  services:
-    - docker:dind # dind表示docker in docker
-  variables: # 设置环境变量，供脚本使用
-    foo: hello world
+send_job:
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq software-properties-common
+    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    - echo "install nodejs"
+    - apt-get update -qq && apt-get install -y -qq nodejs
+    - node -v
+    - npm -v
+    - npm install nodemailer
   script:
-    - echo "env" $foo
-    - echo "building docker"
-    - docker build -t k8s_tar 1.8.15
-    - docker images
-  after_script:
-    - echo "after script"
+    - echo "running mail.js"
+    - node .gitemail.js "li@latelee.org, latelee@163.com" "CICD实践项目" https://gitlab.com/latelee/ci
 
-deploy: # deploy阶段
-  stage: deploy
-  script:
-    - echo "deploy stage"
+  after_script:
+    - echo "after script..."
+  only:
+    - master
