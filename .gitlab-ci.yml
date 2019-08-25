@@ -1,6 +1,6 @@
 send_job:
   before_script:
-    - sudo apt-get install -y sshpass
+    - apt-get install -y sshpass
   script:
     - pwd
     - ls -a
