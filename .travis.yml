@@ -12,11 +12,12 @@ install:
 script:
     - pwd
     - ls -a
-    - scp 
     # 此处进行编译、构建等操作
 
 after_script:
     # 此处进行部署等操作
     - echo "after script..."
-    - sshpass -p ${PASSWD} ssh ${USER}@${HOST} -o StrictHostKeyChecking=no "uname -a > /tmp/foo"
+    - echo "ssh check" > file.txt # 临时文件
+    - sshpass -p ${PASSWD} ssh -o StrictHostKeyChecking=no ${USER}@${HOST}"uname -a > /tmp/foo"
+    - sshpass -p ${PASSWD} scp -o StrictHostKeyChecking=no file.txt ${USER}@${HOST}:/tmp/
     - echo $?
