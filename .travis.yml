@@ -8,7 +8,7 @@ sudo: required
 git:
     quiet: true
 install:
-    - npm install sshpass
+    - sudo apt-get install -y sshpass
 script:
     - pwd
     - ls -a
