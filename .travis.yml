@@ -8,12 +8,15 @@ sudo: required
 git:
     quiet: true
 install:
-    - npm install nodemailer
+    - npm install sshpass
 script:
     - pwd
     - ls -a
-    - echo "running mail.js"
-    - node .gitemail.js "li@latelee.org, latelee@163.com" "CICD实践项目" https://github.com/latelee/ci
+    - scp 
+    # 此处进行编译、构建等操作
 
 after_script:
+    # 此处进行部署等操作
     - echo "after script..."
+    - sshpass -p ${PASSWD} ssh ${USER}@${HOST} -o StrictHostKeyChecking=no "uname -a > /tmp/foo"
+    - echo $?
