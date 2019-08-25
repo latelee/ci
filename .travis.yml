@@ -18,6 +18,6 @@ after_script:
     # 此处进行部署等操作
     - echo "after script..."
     - echo "ssh check" > file.txt # 临时文件
-    - sshpass -p ${PASSWD} ssh -o StrictHostKeyChecking=no ${USER}@${HOST} "uname -a > /tmp/foo"
+    - sshpass -p "${PASSWD}" ssh -o StrictHostKeyChecking=no ${USER}@${HOST} "uname -a > /tmp/foo"
     - sshpass -p ${PASSWD} scp -o StrictHostKeyChecking=no file.txt ${USER}@${HOST}:/tmp/
     - echo $?
