@@ -9,8 +9,8 @@ send_job:
   after_script:
     - echo "after script..."
     - echo "gitlab ssh check" > file.txt # 临时文件
-    - sshpass -p ${PASSWD} ssh -o StrictHostKeyChecking=no ${USER}@${HOST} "uname -a > /tmp/foo"
-    - sshpass -p ${PASSWD} scp -o StrictHostKeyChecking=no file.txt ${USER}@${HOST}:/tmp/
+    - sshpass -p $PASSWD ssh -o StrictHostKeyChecking=no $USER@$HOST "uname -a > /tmp/foo"
+    - sshpass -p $PASSWD scp -o StrictHostKeyChecking=no file.txt $USER@$HOST:/tmp/
     - echo $?    
   only:
     - master
