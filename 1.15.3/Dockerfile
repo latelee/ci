@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 LABEL maintainer Late Lee(li@latelee.org)
 
 # version here
-ENV K8S_VERSION v1.15.13
+ENV K8S_VERSION v1.15.3
 
 ENV ETCD_VERSION v3.2.9
 ENV FLANNEL_VERSION v0.9.0
