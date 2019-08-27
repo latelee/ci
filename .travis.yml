@@ -12,12 +12,17 @@ install:
 script:
     - pwd
     - ls -a
-    # 此处进行编译、构建等操作
-
+    - export K8S_VERSION="v1.15.3" # 指定版本号
+    - export K8S_DIR="k8sdir" # 集中下载到指定目录
+    - mkdir ${K8S_DIR} # 创建目录
+    # 下载压缩包
+    - wget -c -q https://dl.k8s.io/${K8S_VERSION}/kubernetes-server-linux-amd64.tar.gz -P ${K8S_DIR}
+    - wget -c -q https://dl.k8s.io/${K8S_VERSION}/kubernetes-client-linux-amd64.tar.gz -P ${K8S_DIR}
+    - wget -c -q https://dl.k8s.io/${K8S_VERSION}/kubernetes-node-linux-arm64.tar.gz -P ${K8S_DIR}
+    
 after_script:
     # 此处进行部署等操作
     - echo "after script..."
-    - echo "ssh check" > file.txt # 临时文件
-    - sshpass -p "${PASSWD}" ssh -o StrictHostKeyChecking=no ${USER}@${HOST} "uname -a > /tmp/foo"
-    - sshpass -p ${PASSWD} scp -o StrictHostKeyChecking=no file.txt ${USER}@${HOST}:/tmp/
-    - echo $?
+    - echo "copying files to server"
+    # 将下载包的目录上传服务器（使用scp -r拷贝）
+    - sshpass -p ${PASSWD} scp -o StrictHostKeyChecking=no -r ${K8S_DIR} ${USER}@${HOST}:/tmp/
