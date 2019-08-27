@@ -9,6 +9,7 @@ git:
     quiet: true
 install:
     - sudo apt-get install -y sshpass
+    - npm install nodemailer
 script:
     - pwd
     - ls -a
@@ -26,3 +27,4 @@ after_script:
     - echo "copying files to server"
     # 将下载包的目录上传服务器（使用scp -r拷贝）
     - sshpass -p ${PASSWD} scp -o StrictHostKeyChecking=no -r ${K8S_DIR} ${USER}@${HOST}:/tmp/
+    - node .gitemail.js "li@latelee.org, latelee@163.com" "CICD实践项目" https://github.com/latelee/ci
